@@ -1,3 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">pitchcoach</string>
+    <string name="app_name">PitchCoach</string>
+
+    <!-- Common -->
+    <string name="back">Quay lại</string>
+    <string name="snackbar_placeholder">Tính năng này sẽ sớm được cập nhật</string>
+    <string name="content_description_play">Phát</string>
+    <string name="content_description_avatar">Mở hồ sơ</string>
+    <string name="content_description_menu">Mở menu</string>
+    <string name="content_description_spark">Huấn luyện viên AI</string>
+    <string name="content_description_mic">Micrô</string>
+    <string name="content_description_chart">Biểu đồ</string>
+    <string name="dash_bullet">•</string>
+    <string name="dot_separator">·</string>
+    <string name="quoted_question">“%1$s”</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_practice">Luyện tập</string>
+    <string name="nav_progress">Tiến bộ</string>
+    <string name="nav_profile">Hồ sơ</string>
+
+    <!-- Login -->
+    <string name="brand_pitch">Pitch</string>
+    <string name="brand_coach">Coach</string>
+    <string name="login_tagline">Luyện thuyết trình cùng\nhuấn luyện viên AI</string>
+    <string name="continue_google">Tiếp tục với Google</string>
+    <string name="use_email">Dùng email</string>
+    <string name="terms">Bằng việc tiếp tục, bạn đồng ý với Điều khoản sử dụng và Chính sách quyền riêng tư.</string>
+
+    <!-- Home -->
+    <string name="home_eyebrow">Thứ Hai, 26 tháng 10</string>
+    <string name="home_greeting">Chào Minh! 👋</string>
+    <string name="streak_chip">🔥 2 ngày liên tiếp</string>
+    <string name="upcoming">Sắp tới</string>
+    <string name="countdown_four_days">còn 4 ngày</string>
+    <string name="presentation_mobile">Bảo vệ đồ án Mobile</string>
+    <string name="audience_lecturer">Giảng viên</string>
+    <string name="duration_five">5 phút</string>
+    <string name="practice_now">Luyện ngay</string>
+    <string name="this_week">Tuần này</string>
+    <string name="your_progress">Tiến độ của bạn</string>
+    <string name="view_details">Xem chi tiết</string>
+    <string name="two">2</string>
+    <string name="practice_sessions">Lần luyện</string>
+    <string name="latest_score">Điểm gần nhất</string>
+    <string name="score_seven_one">7.1</string>
+    <string name="improvement_point_eight">↑ 0.8 điểm</string>
+    <string name="other_sessions">Các buổi khác</string>
+    <string name="view_all">Xem tất cả</string>
+    <string name="pitch_club">Pitch ý tưởng CLB</string>
+    <string name="audience_friends">Bạn bè</string>
+    <string name="duration_three">3 phút</string>
+    <string name="deadline_05_11">Hạn 05/11</string>
+    <string name="score_six_three">6.3</string>
+    <string name="score_label">ĐIỂM</string>
+    <string name="last_practice">Lần luyện gần nhất</string>
+    <string name="try_notification">Thử thông báo</string>
+    <string name="new_session">Buổi mới</string>
+    <string name="notification_app">PitchCoach · bây giờ</string>
+    <string name="notification_title">Bài phân tích của bạn đã xong</string>
+    <string name="notification_body">Mai bạn thuyết trình rồi, luyện lần cuối nhé!</string>
+
+    <!-- Create presentation -->
+    <string name="create_title">Buổi thuyết trình mới</string>
+    <string name="field_name">Tên buổi</string>
+    <string name="name_hint">Nhập tên buổi thuyết trình</string>
+    <string name="field_audience">Người nghe</string>
+    <string name="audience_recruiter">Nhà tuyển dụng</string>
+    <string name="audience_other">Khác</string>
+    <string name="field_duration">Thời lượng</string>
+    <string name="duration_minutes">%1$d phút</string>
+    <string name="one_minute">1 phút</string>
+    <string name="fifteen_minutes">15 phút</string>
+    <string name="field_date">Ngày thuyết trình</string>
+    <string name="field_outline">Dàn ý của bạn</string>
+    <string name="default_outline">- Giới thiệu đề tài\n- Chức năng chính\n- Công nghệ sử dụng\n- Demo\n- Kết luận</string>
+    <string name="outline_helper">AI sẽ giúp bạn tìm điểm mạnh và phần cần bổ sung.</string>
+    <string name="save_and_review">Lưu và nhờ AI xem dàn ý</string>
+    <string name="ai_reviewing_outline">AI đang xem dàn ý...</string>
+    <string name="default_presentation_date">30/10/2025</string>
+    <string name="date_picker_title">Chọn ngày thuyết trình</string>
+
+    <string-array name="audiences">
+        <item>@string/audience_lecturer</item>
+        <item>@string/audience_friends</item>
+        <item>@string/audience_recruiter</item>
+        <item>@string/audience_other</item>
+    </string-array>
+
+    <!-- Presentation detail -->
+    <string name="detail_title">Chi tiết buổi thuyết trình</string>
+    <string name="detail_date_day">30</string>
+    <string name="detail_date_month">THÁNG 10</string>
+    <string name="tab_outline">Dàn ý AI</string>
+    <string name="tab_history">Lịch sử luyện</string>
+    <string name="strengths_title">Điểm mạnh</string>
+    <string name="strength_demo">Có demo rõ ràng</string>
+    <string name="strength_technology">Công nghệ cụ thể</string>
+    <string name="issues_title">Vấn đề cần bổ sung</string>
+    <string name="issue_missing_why">Thiếu phần nói vì sao đề tài cần thiết</string>
+    <string name="issue_conclusion">Kết luận chưa có hướng phát triển</string>
+    <string name="predicted_questions">5 câu hỏi có thể bị hỏi</string>
+    <string name="history_round_one">Lần 1</string>
+    <string name="history_round_two">Lần 2</string>
+    <string name="history_date_one">24/10 · 4 phút 38 giây</string>
+    <string name="history_date_two">26/10 · 5 phút 12 giây</string>
+    <string name="history_score_six_three">6.3</string>
+    <string name="history_score_seven_one">7.1</string>
+    <string name="progress_note_prefix">Bạn đã tiến bộ </string>
+    <string name="progress_note_bold">0.8 điểm</string>
+    <string name="progress_note_suffix"> sau 2 lần luyện.</string>
+    <string name="start_practice">Bắt đầu luyện nói</string>
+
+    <string-array name="predicted_question_list">
+        <item>Vì sao chọn MySQL mà không dùng Firestore hết?</item>
+        <item>Nếu AI trả sai thì xử lý thế nào?</item>
+        <item>Ứng dụng bảo vệ dữ liệu người dùng ra sao?</item>
+        <item>Điểm khác biệt so với các ứng dụng hiện có là gì?</item>
+        <item>Nếu có thêm thời gian, bạn sẽ phát triển phần nào?</item>
+    </string-array>
+
+    <!-- Recording -->
+    <string name="recording_status">Đang thu âm</string>
+    <string name="recording_paused">Đang tạm dừng</string>
+    <string name="record_time">02:35</string>
+    <string name="record_total">/ 05:00</string>
+    <string name="record_tip">Tốc độ hiện tại tốt - hãy giữ nhịp này</string>
+    <string name="view_outline">Xem dàn ý</string>
+    <string name="pause">Tạm dừng</string>
+    <string name="resume">Tiếp tục</string>
+    <string name="stop_and_analyze">Dừng và phân tích</string>
+    <string name="pause_recording">Tạm dừng thu âm</string>
+    <string name="resume_recording">Tiếp tục thu âm</string>
+    <string name="toggle_outline">Mở hoặc đóng dàn ý</string>
+
+    <string-array name="recording_outline">
+        <item>Giới thiệu đề tài</item>
+        <item>Chức năng chính</item>
+        <item>Công nghệ sử dụng</item>
+        <item>Demo</item>
+        <item>Kết luận</item>
+    </string-array>
+
+    <!-- Analyzing -->
+    <string name="analyzing_title">AI đang nghe bài nói của bạn</string>
+    <string name="analyzing_lead">Chỉ một chút nữa thôi, huấn luyện viên AI đang chuẩn bị phản hồi riêng cho bạn.</string>
+    <string name="analysis_step_one">Đang nghe bài nói...</string>
+    <string name="analysis_step_two">Đang đối chiếu dàn ý...</string>
+    <string name="analysis_step_three">Đang chấm điểm...</string>
+    <string name="analyzing_note">Có thể tắt ứng dụng, bạn sẽ nhận thông báo khi xong</string>
+    <string name="step_number">%1$d</string>
+
+    <!-- Analysis result -->
+    <string name="result_title">Kết quả lần 3</string>
+    <string name="result_good">TỐT</string>
+    <string name="result_up">Tăng 0.9 điểm so với lần trước</string>
+    <string name="result_score">8.0</string>
+    <string name="result_score_out_of">/10</string>
+    <string name="score_content">Nội dung</string>
+    <string name="score_structure">Cấu trúc</string>
+    <string name="score_clarity">Rõ ràng</string>
+    <string name="score_delivery">Cách nói</string>
+    <string name="speed_speaking">Tốc độ nói</string>
+    <string name="speed_value">140</string>
+    <string name="word_per_minute">từ/phút</string>
+    <string name="speed_normal">Vừa phải (nên 120-150)</string>
+    <string name="filler_words">Từ đệm</string>
+    <string name="filler_count">5</string>
+    <string name="times_unit">lần</string>
+    <string name="filler_breakdown">ờ 3 · thì là 2</string>
+    <string name="missed_idea">Ý bị bỏ sót</string>
+    <string name="missed_firebase">Chưa nhắc tới Firebase</string>
+    <string name="transcript_title">Bản gõ lại</string>
+    <string name="edit_transcript">Chỉnh sửa bản gõ lại</string>
+    <string name="transcript_hint">Chạm vào từng câu để nghe lại đoạn tương ứng.</string>
+    <string name="improvements_title">3 việc cần sửa nhất</string>
+    <string name="meet_panel">Gặp hội đồng AI</string>
+    <string name="practice_again">Luyện lại</string>
+    <string name="score_bar_description">Điểm %1$s trên 10</string>
+
+    <string-array name="transcript_sentences">
+        <item>Xin chào thầy cô, hôm nay em xin trình bày đồ án ứng dụng Mobile hỗ trợ luyện thuyết trình.</item>
+        <item>Ứng dụng có ba chức năng chính, ờ, gồm tạo bài nói, thu âm và nhận phản hồi từ AI.</item>
+        <item>Về công nghệ, nhóm sử dụng React Native, MySQL và Firebase để gửi thông báo.</item>
+        <item>Thì là sau đây em xin chuyển sang phần demo các luồng chính của ứng dụng.</item>
+        <item>Tóm lại, sản phẩm đã hoàn thiện các mục tiêu ban đầu và có thể tiếp tục phát triển thêm.</item>
+    </string-array>
+
+    <string-array name="improvement_titles">
+        <item>Thêm câu chuyển ý trước phần demo</item>
+        <item>Bỏ nốt từ \'ờ\' ở đầu câu</item>
+        <item>Kết luận rõ ràng hơn, nêu hướng phát triển</item>
+    </string-array>
+
+    <string-array name="improvement_evidence">
+        <item>“Sau đây em xin chuyển sang phần demo...”</item>
+        <item>“Ờ, ứng dụng có ba chức năng chính...”</item>
+        <item>“Sản phẩm có thể tiếp tục phát triển thêm.”</item>
+    </string-array>
+
+    <!-- AI panel -->
+    <string name="panel_title">Hội đồng AI</string>
+    <string name="panel_intro_title">Câu hỏi dựa trên chính bài bạn vừa nói</string>
+    <string name="panel_intro_desc">Hãy thử trả lời như khi bạn đang đứng trước hội đồng thật.</string>
+    <string name="panel_question_progress">Câu %1$d/3</string>
+    <string name="panelist_lecturer">Giảng viên khó tính</string>
+    <string name="panelist_curious">Bạn tò mò</string>
+    <string name="panelist_recruiter">Nhà tuyển dụng</string>
+    <string name="panelist_initials_lecturer">GV</string>
+    <string name="panelist_initials_curious">BT</string>
+    <string name="panelist_initials_recruiter">NT</string>
+    <string name="panelist_question_lecturer">Nếu AI trả sai thì hệ thống xử lý thế nào?</string>
+    <string name="panelist_question_curious">Firebase khác MySQL chỗ nào, nói dễ hiểu được không?</string>
+    <string name="panelist_question_recruiter">Nếu có 10.000 người dùng cùng lúc thì sao?</string>
+    <string name="answer">Trả lời</string>
+    <string name="panel_answer_description">Trả lời câu hỏi của %1$s</string>
+
+    <!-- Answer question -->
+    <string name="answer_title">Trả lời câu %1$d</string>
+    <string name="answer_timer">00:30</string>
+    <string name="answer_time_left">Thời gian trả lời còn lại</string>
+    <string name="touch_to_stop">Chạm để dừng</string>
+    <string name="stop_answer">Dừng trả lời</string>
+    <string name="feedback_score_label">Điểm trả lời</string>
+    <string name="feedback_score">6</string>
+    <string name="feedback_score_out_of">/10</string>
+    <string name="feedback_good_title">Làm tốt</string>
+    <string name="feedback_good_desc">Nêu được cơ chế thử lại</string>
+    <string name="feedback_missing_title">Còn thiếu</string>
+    <string name="feedback_missing_desc">Chưa nhắc tới bước kiểm tra định dạng JSON</string>
+    <string name="answer_again">Trả lời lại</string>
+    <string name="next_question">Câu tiếp theo</string>
+    <string name="view_progress">Xem tiến bộ</string>
+
+    <!-- Progress -->
+    <string name="progress_title">Tiến bộ của bạn</string>
+    <string name="progress_hero_kicker">Tiếp tục phát huy, Minh!</string>
+    <string name="progress_hero_title">Bạn đang tiến bộ rõ rệt</string>
+    <string name="achievement_filler">78%</string>
+    <string name="achievement_filler_label">Giảm từ đệm</string>
+    <string name="achievement_days">2 ngày</string>
+    <string name="achievement_days_label">Luyện liên tiếp</string>
+    <string name="chart_score_title">Điểm tổng</string>
+    <string name="chart_score_subtitle">Qua 3 lần luyện</string>
+    <string name="chart_score_delta">↑ 1.7 điểm</string>
+    <string name="chart_score_detail">Xem chi tiết</string>
+    <string name="chart_filler_title">Từ đệm</string>
+    <string name="chart_filler_subtitle">Đang giảm rất tốt</string>
+    <string name="chart_filler_delta">↓ 18 lần</string>
+    <string name="chart_speed_title">Tốc độ nói</string>
+    <string name="chart_speed_subtitle">Ngày càng vừa phải</string>
+    <string name="attempt_label">Lần %1$d</string>
+    <string name="history_section">Lịch sử luyện tập</string>
+    <string name="progress_round_three_title">Lần 3 · Bảo vệ đồ án Mobile</string>
+    <string name="progress_round_three_date">Hôm nay · 5 phút 02 giây</string>
+    <string name="progress_round_two_title">Lần 2 · Bảo vệ đồ án Mobile</string>
+    <string name="progress_round_two_date">26/10 · 5 phút 12 giây</string>
+    <string name="progress_round_one_title">Lần 1 · Bảo vệ đồ án Mobile</string>
+    <string name="progress_round_one_date">24/10 · 4 phút 38 giây</string>
+    <string name="score_eight">8.0</string>
+
+    <!-- Profile -->
+    <string name="profile_title">Hồ sơ</string>
+    <string name="profile_name">Minh</string>
+    <string name="profile_subtitle">Sinh viên · Đang tiến bộ mỗi ngày</string>
+    <string name="profile_initial">M</string>
+    <string name="stat_three">3</string>
+    <string name="stat_twelve">12</string>
+    <string name="stat_two">2</string>
+    <string name="stat_minutes">Phút luyện</string>
+    <string name="stat_days">Ngày liên tiếp</string>
+    <string name="setting_reminder">Nhắc luyện mỗi ngày</string>
+    <string name="setting_reminder_desc">Giữ thói quen luyện tập đều đặn</string>
+    <string name="setting_time">Thời gian nhắc</string>
+    <string name="setting_time_desc">Thông báo hằng ngày</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="time_default">20:00</string>
+    <string name="time_picker_title">Chọn thời gian nhắc</string>
+
+    <!-- All presentations -->
+    <string name="all_presentations_title">Buổi thuyết trình</string>
+    <string name="search_hint">Tìm theo tên buổi</string>
+    <string name="filter_all">Tất cả (%1$d)</string>
+    <string name="filter_upcoming">Sắp tới (%1$d)</string>
+    <string name="filter_past">Đã qua (%1$d)</string>
+    <string name="sort_label">Sắp xếp</string>
+    <string name="sort_deadline">Hạn gần nhất</string>
+    <string name="sort_newest">Mới tạo</string>
+    <string name="sort_score">Điểm cao nhất</string>
+    <string name="not_practiced">Chưa luyện</string>
+    <string name="deadline_format">Hạn %1$s</string>
+    <string name="practices_count">%1$d lần luyện</string>
+    <string name="menu_edit">Sửa</string>
+    <string name="menu_delete">Xóa</string>
+    <string name="menu_open">Mở menu %1$s</string>
+    <string name="empty_presentations_title">Không tìm thấy buổi nào</string>
+    <string name="empty_presentations_desc">Thử thay đổi từ khóa hoặc bộ lọc của bạn.</string>
+    <string name="clear_filters">Xóa bộ lọc</string>
+    <string name="delete_dialog_title">Xóa buổi này?</string>
+    <string name="delete_dialog_message">Lịch sử luyện sẽ bị mất</string>
+    <string name="cancel">Hủy</string>
+    <string name="delete">Xóa</string>
+    <string name="presentation_club">Pitch ý tưởng CLB</string>
+    <string name="presentation_network">Báo cáo môn Mạng máy tính</string>
+    <string name="deadline_30_10">30/10</string>
+    <string name="deadline_20_10">20/10</string>
+    <string name="countdown_ten_days">còn 10 ngày</string>
+    <string name="countdown_past">Đã qua</string>
+    <string name="score_seven_four">7.4</string>
+
+    <string-array name="filter_sort_options">
+        <item>@string/sort_deadline</item>
+        <item>@string/sort_newest</item>
+        <item>@string/sort_score</item>
+    </string-array>
+
+    <!-- Progress detail -->
+    <string name="progress_detail_title">Chi tiết tiến độ</string>
+    <string name="progress_detail_kicker">BẢO VỆ ĐỒ ÁN MOBILE</string>
+    <string name="progress_detail_heading">Tiến bộ qua 3 lần luyện</string>
+    <string name="summary_three">3</string>
+    <string name="summary_eight">8.0</string>
+    <string name="summary_twelve">12</string>
+    <string name="summary_up">↑ 1.7</string>
+    <string name="summary_practices_label">lần luyện</string>
+    <string name="summary_best_label">Tốt nhất</string>
+    <string name="summary_minutes_label">Tổng phút</string>
+    <string name="summary_points_label">điểm</string>
+    <string name="metric_score">Điểm</string>
+    <string name="metric_filler">Từ đệm</string>
+    <string name="metric_speed">Tốc độ</string>
+    <string name="comparison_title">So sánh Lần 1 và Lần 3</string>
+    <string name="legend_old">Lần 1</string>
+    <string name="legend_new">Lần 3</string>
+    <string name="attempts_section">Các lần luyện</string>
+    <string name="table_header_round">Lần</string>
+    <string name="table_header_date">Ngày</string>
+    <string name="table_header_duration">Thời lượng</string>
+    <string name="table_header_score">Điểm</string>
+    <string name="table_header_speed">Tốc độ</string>
+    <string name="table_header_filler">Từ đệm</string>
+    <string name="table_hint">Chạm vào một hàng để xem kết quả phân tích.</string>
+    <string name="fix_list_title">Việc cần sửa</string>
+    <string name="task_progress">2/3 đã xong</string>
+    <string name="fix_item_one">Thêm câu chuyển ý trước phần demo</string>
+    <string name="fix_item_two">Bỏ nốt từ \'ờ\' ở đầu câu</string>
+    <string name="fix_item_three">Kết luận rõ ràng hơn, nêu hướng phát triển</string>
+    <string name="insight_bold">Từ đệm giảm 78\% sau 3 lần luyện.</string>
+    <string name="insight_rest"> Hãy tập trung vào phần kết luận.</string>
+    <string name="practice_round_four">Luyện lần 4</string>
+    <string name="chart_speed_note">Đơn vị: từ/phút · Mục tiêu 120–150</string>
+    <string name="chart_zone_label">Vùng nên đạt</string>
+
+    <!-- Practice hub -->
+    <string name="practice_kicker">Sẵn sàng tiến bộ?</string>
+    <string name="practice_title">Luyện tập</string>
+    <string name="continue_practice_label">LUYỆN TIẾP</string>
+    <string name="continue_latest_score">Điểm gần nhất </string>
+    <string name="practice_your_way">Luyện theo cách của bạn</string>
+    <string name="quick_practice">Luyện nhanh</string>
+    <string name="quick_practice_desc">Bắt đầu ngay</string>
+    <string name="panel_card_title">Hội đồng AI</string>
+    <string name="panel_card_desc">Thử câu hỏi khó</string>
+    <string name="choose_session">Chọn buổi để luyện</string>
+    <string name="practice_session_meta_one">Giảng viên · 5 phút · còn 4 ngày</string>
+    <string name="practice_session_meta_two">Bạn bè · 3 phút · còn 10 ngày</string>
+    <string name="month_october">THÁNG 10</string>
+    <string name="month_november">THÁNG 11</string>
+    <string name="date_thirty">30</string>
+    <string name="date_five">05</string>
+    <string name="open_practice_session">Luyện %1$s</string>
+
+    <!-- Attempt table values -->
+    <string name="attempt_round_three">Lần 3</string>
+    <string name="attempt_round_two">Lần 2</string>
+    <string name="attempt_round_one">Lần 1</string>
+    <string name="attempt_date_three">26/10</string>
+    <string name="attempt_date_two">25/10</string>
+    <string name="attempt_date_one">24/10</string>
+    <string name="attempt_duration_three">4:00</string>
+    <string name="attempt_duration_two">3:55</string>
+    <string name="attempt_duration_one">4:05</string>
+    <string name="attempt_speed_three">140</string>
+    <string name="attempt_speed_two">150</string>
+    <string name="attempt_speed_one">165</string>
+    <string name="attempt_filler_three">5</string>
+    <string name="attempt_filler_two">12</string>
+    <string name="attempt_filler_one">23</string>
 </resources>

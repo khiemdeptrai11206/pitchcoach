@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="49dp"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="25dp"
+        android:layout_height="25dp">
+
+        <TextView
+            android:id="@+id/step_number"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/bg_step_badge"
+            android:fontFamily="@font/inter_extrabold"
+            android:gravity="center"
+            android:textColor="@color/text_muted"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/step_progress"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/primary"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/step_check"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_check_small"
+            android:visibility="gone"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:tint="@color/white" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/step_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter_semibold"
+        android:textColor="#A5A3AF"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+</LinearLayout>

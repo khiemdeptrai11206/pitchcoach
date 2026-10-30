@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/transcript_line"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="top"
+    android:minHeight="44dp"
+    android:orientation="horizontal"
+    android:paddingTop="11dp"
+    android:paddingBottom="11dp">
+
+    <TextView
+        android:id="@+id/sentence_number"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/bg_transcript_number"
+        android:fontFamily="@font/inter_extrabold"
+        android:gravity="center"
+        android:textColor="@color/text_muted"
+        android:textSize="8sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/sentence"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:lineSpacingExtra="3dp"
+        android:textColor="@color/text_primary"
+        android:textSize="11sp" />
+
+    <ImageView
+        android:id="@+id/play_icon"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="4dp"
+        android:alpha="0"
+        android:contentDescription="@string/content_description_play"
+        android:src="@drawable/ic_play"
+        app:tint="@color/primary" />
+</LinearLayout>

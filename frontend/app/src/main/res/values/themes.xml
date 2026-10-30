@@ -1,9 +1,55 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Pitchcoach" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.PitchCoach" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/primary</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/primary_container</item>
+        <item name="colorOnSecondaryContainer">@color/primary</item>
+        <item name="colorTertiary">@color/green</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/background</item>
+        <item name="colorOnSurfaceVariant">@color/text_muted</item>
+        <item name="colorOutline">@color/border</item>
+        <item name="colorOutlineVariant">@color/border</item>
+        <item name="colorSurfaceContainer">@color/surface</item>
+        <item name="colorSurfaceContainerLow">@color/background</item>
+        <item name="colorSurfaceContainerHigh">@color/surface</item>
+        <item name="colorSurfaceContainerHighest">@color/surface</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="fontFamily">@font/inter</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.PitchCoach.Dialog</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.PitchCoach.BottomSheet</item>
+        <item name="snackbarStyle">@style/Widget.PitchCoach.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/Widget.PitchCoach.Snackbar.TextView</item>
     </style>
 
-    <style name="Theme.Pitchcoach" parent="Base.Theme.Pitchcoach" />
+    <style name="Widget.PitchCoach.Snackbar" parent="Widget.Material3.Snackbar">
+        <item name="android:background">@color/snackbar_background</item>
+        <item name="backgroundTint">@color/snackbar_background</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.PitchCoach.Snackbar</item>
+    </style>
+
+    <style name="ShapeAppearance.PitchCoach.Snackbar" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="Widget.PitchCoach.Snackbar.TextView" parent="Widget.Material3.Snackbar.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>

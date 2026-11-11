@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "834367951804",
+    "project_id": "pitchcoach-ab4ee",
+    "storage_bucket": "pitchcoach-ab4ee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834367951804:android:f18c2d35091ffea61e91b9",
+        "android_client_info": {
+          "package_name": "com.pitchcoach.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834367951804-b7a7g3niaen861cmfhnncgrs4ibt75ao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQW5PH2GAN7xhtjwFMkwLvvp3ssa8qJCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834367951804-b7a7g3niaen861cmfhnncgrs4ibt75ao.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

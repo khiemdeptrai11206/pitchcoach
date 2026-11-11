@@ -67,6 +67,24 @@ public class CreatePresentationFragment extends Fragment {
         saving = true;
         binding.saveButton.setEnabled(false);
         binding.saveButton.setText(R.string.ai_reviewing_outline);
+
+        String title = binding.nameInput.getText() != null
+                && !binding.nameInput.getText().toString().trim().isEmpty()
+                ? binding.nameInput.getText().toString().trim()
+                : getString(R.string.presentation_mobile);
+        String audience = resolveSelectedAudience();
+        int durationMin = (int) binding.durationSlider.getValue();
+        String deadline = binding.dateInput.getText() != null
+                && !binding.dateInput.getText().toString().trim().isEmpty()
+                ? binding.dateInput.getText().toString().trim()
+                : getString(R.string.deadline_30_10);
+        String rawOutline = binding.outlineInput.getText() != null
+                ? binding.outlineInput.getText().toString().trim()
+                : "";
+
+        controller.createPresentation(
+                requireContext(), title, audience, durationMin, deadline, rawOutline);
+
         saveHandler.postDelayed(() -> {
             if (!isAdded() || binding == null) {
                 return;
@@ -75,6 +93,18 @@ public class CreatePresentationFragment extends Fragment {
             NavHostFragment.findNavController(this)
                     .navigate(R.id.action_create_to_detail);
         }, 2000);
+    }
+
+    private String resolveSelectedAudience() {
+        int checkedId = binding.audienceGroup.getCheckedChipId();
+        if (checkedId == R.id.audience_friends) {
+            return getString(R.string.audience_friends);
+        } else if (checkedId == R.id.audience_recruiter) {
+            return getString(R.string.audience_recruiter);
+        } else if (checkedId == R.id.audience_other) {
+            return getString(R.string.audience_other);
+        }
+        return getString(R.string.audience_lecturer);
     }
 
     @Override

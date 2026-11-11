@@ -35,10 +35,15 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.reminderSwitch.setOnCheckedChangeListener((button, checked) ->
-                UiUtils.showSnackbar(
-                        binding.getRoot(),
-                        getString(checked ? R.string.setting_reminder : R.string.setting_time)));
+        binding.reminderTime.setText(profileController.getReminderTime(requireContext()));
+
+        binding.reminderSwitch.setOnCheckedChangeListener((button, checked) -> {
+            profileController.saveReminderSettings(
+                    requireContext(), checked, binding.reminderTime.getText().toString());
+            UiUtils.showSnackbar(
+                    binding.getRoot(),
+                    getString(checked ? R.string.setting_reminder : R.string.setting_time));
+        });
 
         binding.timeRow.setOnClickListener(v -> openTimePicker());
 
@@ -57,10 +62,12 @@ public class ProfileFragment extends Fragment {
     }
 
     private void openTimePicker() {
-        new TimePickerDialog(requireContext(), (picker, hourOfDay, minute) ->
-                binding.reminderTime.setText(
-                        profileController.formatReminderTime(hourOfDay, minute)),
-                20, 0, true).show();
+        new TimePickerDialog(requireContext(), (picker, hourOfDay, minute) -> {
+            String formatted = profileController.formatReminderTime(hourOfDay, minute);
+            binding.reminderTime.setText(formatted);
+            profileController.saveReminderSettings(
+                    requireContext(), binding.reminderSwitch.isChecked(), formatted);
+        }, 20, 0, true).show();
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.pitchcoach.app.model.AttemptRow;
 import com.pitchcoach.app.model.PracticeSession;
+import com.pitchcoach.app.model.local.PitchCoachDbHelper;
 
 import java.util.List;
 
@@ -34,10 +35,10 @@ public class ProgressRepository {
     }
 
     public List<PracticeSession> getProgressSessions(Context context) {
-        return SampleData.createProgressSessions(context);
+        return PitchCoachDbHelper.getInstance(context).getProgressSessions();
     }
 
     public List<AttemptRow> getAttempts(Context context) {
-        return SampleData.createAttempts(context);
+        return PitchCoachDbHelper.getInstance(context).getAttemptRows();
     }
 }

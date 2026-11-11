@@ -24,6 +24,17 @@ public class PresentationController {
         return repository.getPresentations(context);
     }
 
+    public void syncFromFirebase(Context context, PresentationRepository.SyncListener listener) {
+        repository.syncFromFirebase(context, listener);
+    }
+
+    public PresentationItem createPresentation(Context context, String title, String audience,
+                                               int durationMin, String deadlineDisplay,
+                                               String rawOutline) {
+        return repository.createPresentation(
+                context, title, audience, durationMin, deadlineDisplay, rawOutline);
+    }
+
     public List<PresentationItem> deletePresentation(Context context, String title) {
         return repository.deleteByTitle(context, title);
     }

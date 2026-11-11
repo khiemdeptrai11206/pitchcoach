@@ -87,6 +87,14 @@ public class AllPresentationsFragment extends Fragment {
         updateFilterLabels(currentItems);
         applyFilters(currentItems);
 
+        controller.syncFromFirebase(requireContext(), updatedItems -> {
+            if (isAdded() && binding != null) {
+                currentItems = updatedItems;
+                updateFilterLabels(currentItems);
+                applyFilters(currentItems);
+            }
+        });
+
         binding.searchInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -177,7 +177,7 @@
                             android:textStyle="bold" />
                     </LinearLayout>
 
-                    <com.pitchcoach.app.ui.widget.LineChartView
+                    <com.pitchcoach.app.view.widget.LineChartView
                         android:id="@+id/score_chart"
                         android:layout_width="match_parent"
                         android:layout_height="130dp"
@@ -249,7 +249,7 @@
                             android:textStyle="bold" />
                     </LinearLayout>
 
-                    <com.pitchcoach.app.ui.widget.LineChartView
+                    <com.pitchcoach.app.view.widget.LineChartView
                         android:id="@+id/filler_chart"
                         android:layout_width="match_parent"
                         android:layout_height="130dp"

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.pitchcoach.app.ui.login.LoginFragment"
+        android:name="com.pitchcoach.app.view.login.LoginFragment"
         android:label="@string/app_name">
         <action
             android:id="@+id/action_login_to_home"
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.pitchcoach.app.ui.home.HomeFragment"
+        android:name="com.pitchcoach.app.view.home.HomeFragment"
         android:label="@string/nav_home">
         <action
             android:id="@+id/action_home_to_create"
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/createPresentationFragment"
-        android:name="com.pitchcoach.app.ui.presentation.CreatePresentationFragment"
+        android:name="com.pitchcoach.app.view.presentation.CreatePresentationFragment"
         android:label="@string/create_title">
         <action
             android:id="@+id/action_create_to_detail"
@@ -43,7 +43,7 @@
 
     <fragment
         android:id="@+id/presentationDetailFragment"
-        android:name="com.pitchcoach.app.ui.presentation.PresentationDetailFragment"
+        android:name="com.pitchcoach.app.view.presentation.PresentationDetailFragment"
         android:label="@string/detail_title">
         <action
             android:id="@+id/action_detail_to_record"
@@ -55,7 +55,7 @@
 
     <fragment
         android:id="@+id/allPresentationsFragment"
-        android:name="com.pitchcoach.app.ui.presentation.AllPresentationsFragment"
+        android:name="com.pitchcoach.app.view.presentation.AllPresentationsFragment"
         android:label="@string/all_presentations_title">
         <argument
             android:name="mode"
@@ -74,7 +74,7 @@
 
     <fragment
         android:id="@+id/recordingFragment"
-        android:name="com.pitchcoach.app.ui.practice.RecordingFragment"
+        android:name="com.pitchcoach.app.view.practice.RecordingFragment"
         android:label="@string/presentation_mobile">
         <action
             android:id="@+id/action_record_to_analyzing"
@@ -85,7 +85,7 @@
 
     <fragment
         android:id="@+id/analyzingFragment"
-        android:name="com.pitchcoach.app.ui.practice.AnalyzingFragment"
+        android:name="com.pitchcoach.app.view.practice.AnalyzingFragment"
         android:label="@string/analyzing_title">
         <action
             android:id="@+id/action_analyzing_to_result"
@@ -96,7 +96,7 @@
 
     <fragment
         android:id="@+id/analysisResultFragment"
-        android:name="com.pitchcoach.app.ui.practice.AnalysisResultFragment"
+        android:name="com.pitchcoach.app.view.practice.AnalysisResultFragment"
         android:label="@string/result_title">
         <action
             android:id="@+id/action_result_to_panel"
@@ -110,7 +110,7 @@
 
     <fragment
         android:id="@+id/aiPanelFragment"
-        android:name="com.pitchcoach.app.ui.practice.AiPanelFragment"
+        android:name="com.pitchcoach.app.view.practice.AiPanelFragment"
         android:label="@string/panel_title">
         <argument
             android:name="current"
@@ -123,7 +123,7 @@
 
     <fragment
         android:id="@+id/answerQuestionFragment"
-        android:name="com.pitchcoach.app.ui.practice.AnswerQuestionFragment"
+        android:name="com.pitchcoach.app.view.practice.AnswerQuestionFragment"
         android:label="@string/panel_title">
         <argument
             android:name="index"
@@ -138,7 +138,7 @@
 
     <fragment
         android:id="@+id/progressFragment"
-        android:name="com.pitchcoach.app.ui.progress.ProgressFragment"
+        android:name="com.pitchcoach.app.view.progress.ProgressFragment"
         android:label="@string/nav_progress">
         <action
             android:id="@+id/action_progress_to_detail"
@@ -147,7 +147,7 @@
 
     <fragment
         android:id="@+id/progressDetailFragment"
-        android:name="com.pitchcoach.app.ui.progress.ProgressDetailFragment"
+        android:name="com.pitchcoach.app.view.progress.ProgressDetailFragment"
         android:label="@string/progress_detail_title">
         <action
             android:id="@+id/action_progress_detail_to_result"
@@ -159,7 +159,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.pitchcoach.app.ui.profile.ProfileFragment"
+        android:name="com.pitchcoach.app.view.profile.ProfileFragment"
         android:label="@string/profile_title">
         <action
             android:id="@+id/action_profile_to_login"
@@ -170,7 +170,7 @@
 
     <fragment
         android:id="@+id/practiceFragment"
-        android:name="com.pitchcoach.app.ui.practice.PracticeHubFragment"
+        android:name="com.pitchcoach.app.view.practice.PracticeHubFragment"
         android:label="@string/nav_practice">
         <action
             android:id="@+id/action_practice_to_record"

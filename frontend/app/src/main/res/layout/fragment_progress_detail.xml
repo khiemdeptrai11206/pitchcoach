@@ -245,7 +245,7 @@
                             android:textSize="11sp" />
                     </LinearLayout>
 
-                    <com.pitchcoach.app.ui.widget.LineChartView
+                    <com.pitchcoach.app.view.widget.LineChartView
                         android:id="@+id/detail_chart"
                         android:layout_width="match_parent"
                         android:layout_height="170dp"

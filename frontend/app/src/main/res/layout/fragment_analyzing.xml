@@ -15,7 +15,7 @@
         android:layout_width="130dp"
         android:layout_height="130dp">
 
-        <com.pitchcoach.app.ui.widget.AnalysisRingView
+        <com.pitchcoach.app.view.widget.AnalysisRingView
             android:id="@+id/analysis_ring"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

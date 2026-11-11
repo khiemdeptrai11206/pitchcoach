@@ -113,7 +113,7 @@
                 android:progressBackgroundTint="@color/track"
                 android:progressTint="@color/accent" />
 
-            <com.pitchcoach.app.ui.widget.WaveformView
+            <com.pitchcoach.app.view.widget.WaveformView
                 android:id="@+id/waveform"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"

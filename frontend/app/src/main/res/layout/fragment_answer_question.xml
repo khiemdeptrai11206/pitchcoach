@@ -84,7 +84,7 @@
                 android:textColor="@color/text_muted"
                 android:textSize="11sp" />
 
-            <com.pitchcoach.app.ui.widget.WaveformView
+            <com.pitchcoach.app.view.widget.WaveformView
                 android:id="@+id/answer_waveform"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"

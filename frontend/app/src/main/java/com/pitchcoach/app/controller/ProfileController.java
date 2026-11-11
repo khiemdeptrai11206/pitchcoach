@@ -22,5 +22,7 @@ public class ProfileController {
         String uid = FirebaseDataSource.getInstance().getCurrentUid();
         PitchCoachDbHelper.getInstance(context).updateReminderSettings(uid, enabled, reminderTime);
         FirebaseDataSource.getInstance().updateReminderInFirestore(enabled, reminderTime);
+        com.pitchcoach.app.model.remote.BackendApiClient.getInstance()
+                .updateSettingsOnBackend(enabled, reminderTime);
     }
 }

@@ -31,10 +31,12 @@ public class FirestoreService {
 
     private final Firestore firestore;
     private final StorageClient storageClient;
+    private final GeminiService geminiService;
 
-    public FirestoreService(Firestore firestore, StorageClient storageClient) {
+    public FirestoreService(Firestore firestore, StorageClient storageClient, GeminiService geminiService) {
         this.firestore = firestore;
         this.storageClient = storageClient;
+        this.geminiService = geminiService;
     }
 
     // ==================== 1. USERS ====================
@@ -168,7 +170,9 @@ public class FirestoreService {
         }
         doc.setUpdatedAt(now);
 
-        // Nếu có rawOutline nhưng chưa có outlineItems, tự động tách mục dàn ý & sinh câu hỏi dự đoán
+        // Gọi Gemini AI phân tích dàn ý & sinh câu hỏi dự đoán (nếu có kết nối), fallback về mặc định nếu lỗi
+        geminiService.enrichPresentationWithGemini(doc);
+
         if ((doc.getOutlineItems() == null || doc.getOutlineItems().isEmpty())
                 && doc.getRawOutline() != null && !doc.getRawOutline().isBlank()) {
             doc.setOutlineItems(generateOutlineItems(doc.getRawOutline(), doc.getTargetDurationMin()));
@@ -233,6 +237,7 @@ public class FirestoreService {
         doc.setPredictedQuestions(generateDefaultPredictedQuestions(doc.getTitle()));
         doc.setAiOutlineFeedback("AI đã tối ưu lại dàn ý gồm "
                 + doc.getOutlineItems().size() + " phần chính.");
+        geminiService.enrichPresentationWithGemini(doc);
         doc.setUpdatedAt(System.currentTimeMillis());
 
         firestore.collection("users")
@@ -285,11 +290,19 @@ public class FirestoreService {
         String sessionId = "sess_" + UUID.randomUUID().toString().substring(0, 8);
 
         String resolvedAudioUrl = cloudAudioUrl;
+        byte[] audioBytes = null;
+        String mimeType = "audio/mp4";
         if (audioFile != null && !audioFile.isEmpty()) {
-            String blobPath = "users/" + uid + "/sessions/" + sessionId + "/pitch.m4a";
-            Blob blob = storageClient.bucket().create(
-                    blobPath, audioFile.getBytes(), audioFile.getContentType());
-            resolvedAudioUrl = "gs://" + storageClient.bucket().getName() + "/" + blob.getName();
+            audioBytes = audioFile.getBytes();
+            if (audioFile.getContentType() != null) {
+                mimeType = audioFile.getContentType();
+            }
+            try {
+                String blobPath = "users/" + uid + "/sessions/" + sessionId + "/pitch.m4a";
+                Blob blob = storageClient.bucket().create(blobPath, audioBytes, mimeType);
+                resolvedAudioUrl = "gs://" + storageClient.bucket().getName() + "/" + blob.getName();
+            } catch (Exception ignored) {
+            }
         }
 
         PracticeSessionDocument session = new PracticeSessionDocument();
@@ -346,6 +359,9 @@ public class FirestoreService {
                         "Nhà tuyển dụng", "TD", 2,
                         "Điểm khác biệt lớn nhất của sản phẩm so với các công cụ luyện nói hiện nay là gì?")
         ));
+
+        // Gọi Gemini AI phân tích file ghi âm thực tế (nếu thành công sẽ ghi đè kết quả AI thật vào session)
+        geminiService.analyzePracticeSessionWithGemini(session, audioBytes, mimeType);
 
         WriteBatch batch = firestore.batch();
         DocumentReference sessionRef = firestore.collection("users")
@@ -467,11 +483,19 @@ public class FirestoreService {
             MultipartFile audioFile) throws Exception {
         long now = System.currentTimeMillis();
         String resolvedUrl = answerCloudAudioUrl;
+        byte[] audioBytes = null;
+        String mimeType = "audio/mp4";
         if (audioFile != null && !audioFile.isEmpty()) {
-            String blobPath = "users/" + uid + "/sessions/" + sessionId + "/answer_" + questionIndex + ".m4a";
-            Blob blob = storageClient.bucket().create(
-                    blobPath, audioFile.getBytes(), audioFile.getContentType());
-            resolvedUrl = "gs://" + storageClient.bucket().getName() + "/" + blob.getName();
+            audioBytes = audioFile.getBytes();
+            if (audioFile.getContentType() != null) {
+                mimeType = audioFile.getContentType();
+            }
+            try {
+                String blobPath = "users/" + uid + "/sessions/" + sessionId + "/answer_" + questionIndex + ".m4a";
+                Blob blob = storageClient.bucket().create(blobPath, audioBytes, mimeType);
+                resolvedUrl = "gs://" + storageClient.bucket().getName() + "/" + blob.getName();
+            } catch (Exception ignored) {
+            }
         }
 
         List<PracticeSessionDocument.PanelQaDto> panelList = getPanelQuestions(uid, sessionId);
@@ -486,6 +510,8 @@ public class FirestoreService {
         item.setFeedbackGood("Trả lời đúng trọng tâm câu hỏi, giải thích rõ cơ chế đồng bộ.");
         item.setFeedbackImprove("Nên nêu thêm ví dụ cụ thể về trường hợp xử lý mất mạng.");
         item.setAnsweredAt(now);
+
+        geminiService.evaluatePanelAnswerWithGemini(item, audioBytes, mimeType, answerTranscript);
 
         Map<String, Object> updates = new HashMap<>();
         updates.put("panelQa", panelList);

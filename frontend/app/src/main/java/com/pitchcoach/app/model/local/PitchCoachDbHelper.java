@@ -679,4 +679,73 @@ public class PitchCoachDbHelper extends SQLiteOpenHelper {
     public List<HistoryEntry> getDetailHistory() {
         return SampleData.createDetailHistory(appContext);
     }
+
+    public void saveLatestAnalysisToDefaultSession(
+            float overallScore, int scoreContent, int scoreStructure, int scoreClarity, int scoreDelivery,
+            float speakingSpeedWpm, int fillerWordCount,
+            List<TranscriptLine> transcriptLines, List<Improvement> improvements, List<Panelist> panelists) {
+        SQLiteDatabase db = getWritableDatabase();
+        long now = System.currentTimeMillis();
+
+        ContentValues sessVal = new ContentValues();
+        sessVal.put("overall_score", overallScore);
+        sessVal.put("score_display", String.format(Locale.US, "%.1f", overallScore));
+        sessVal.put("score_content", scoreContent);
+        sessVal.put("score_structure", scoreStructure);
+        sessVal.put("score_clarity", scoreClarity);
+        sessVal.put("score_delivery", scoreDelivery);
+        sessVal.put("speaking_speed_wpm", speakingSpeedWpm);
+        sessVal.put("speed_display", ((int) speakingSpeedWpm) + " từ/p");
+        sessVal.put("filler_word_count", fillerWordCount);
+        sessVal.put("filler_display", fillerWordCount + " từ");
+        sessVal.put("updated_at", now);
+        db.update("practice_sessions", sessVal, "id = ?", new String[]{DEFAULT_SESSION_ID});
+
+        if (transcriptLines != null && !transcriptLines.isEmpty()) {
+            db.delete("transcript_lines", "session_id = ?", new String[]{DEFAULT_SESSION_ID});
+            for (int i = 0; i < transcriptLines.size(); i++) {
+                TranscriptLine line = transcriptLines.get(i);
+                ContentValues trVal = new ContentValues();
+                trVal.put("id", "tr_" + (i + 1));
+                trVal.put("session_id", DEFAULT_SESSION_ID);
+                trVal.put("line_index", i);
+                trVal.put("sentence", line.sentence);
+                trVal.put("highlight_filler", line.highlight);
+                trVal.put("start_ms", i * 5000);
+                trVal.put("end_ms", (i + 1) * 5000);
+                db.insert("transcript_lines", null, trVal);
+            }
+        }
+
+        if (improvements != null && !improvements.isEmpty()) {
+            db.delete("improvements", "session_id = ?", new String[]{DEFAULT_SESSION_ID});
+            for (int i = 0; i < improvements.size(); i++) {
+                Improvement imp = improvements.get(i);
+                ContentValues impVal = new ContentValues();
+                impVal.put("id", "imp_" + (i + 1));
+                impVal.put("session_id", DEFAULT_SESSION_ID);
+                impVal.put("sort_order", i + 1);
+                impVal.put("title", imp.title);
+                impVal.put("evidence", imp.evidence);
+                impVal.put("is_fixed", 0);
+                db.insert("improvements", null, impVal);
+            }
+        }
+
+        if (panelists != null && !panelists.isEmpty()) {
+            db.delete("panel_qa", "session_id = ?", new String[]{DEFAULT_SESSION_ID});
+            for (int i = 0; i < panelists.size(); i++) {
+                Panelist p = panelists.get(i);
+                ContentValues pVal = new ContentValues();
+                pVal.put("id", "qa_" + (i + 1));
+                pVal.put("session_id", DEFAULT_SESSION_ID);
+                pVal.put("question_index", i);
+                pVal.put("panelist_name", p.name);
+                pVal.put("panelist_initials", p.initials);
+                pVal.put("panelist_tone", p.tone);
+                pVal.put("question_text", p.question);
+                db.insert("panel_qa", null, pVal);
+            }
+        }
+    }
 }

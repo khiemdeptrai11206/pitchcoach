@@ -37,6 +37,19 @@ public class PresentationRepository {
     public void syncFromFirebase(Context context, SyncListener listener) {
         PitchCoachDbHelper db = PitchCoachDbHelper.getInstance(context);
         String uid = firebaseDataSource.getCurrentUid();
+
+        // 1. Gọi API Spring Boot Backend (/api/v1/presentations)
+        com.pitchcoach.app.model.remote.BackendApiClient.getInstance()
+                .fetchPresentationsFromBackend(backendItems -> {
+                    for (PresentationItem item : backendItems) {
+                        db.upsertPresentationFromRemote(item, uid);
+                    }
+                    if (listener != null) {
+                        listener.onRemoteUpdated(db.getAllPresentations());
+                    }
+                });
+
+        // 2. Đồng bộ trực tiếp từ Cloud Firestore
         firebaseDataSource.fetchPresentationsFromFirestore(remoteItems -> {
             if (remoteItems != null && !remoteItems.isEmpty()) {
                 for (PresentationItem item : remoteItems) {
@@ -57,6 +70,10 @@ public class PresentationRepository {
         PresentationItem created = db.insertPresentation(
                 uid, title, audience, durationMin, deadlineDisplay, rawOutline);
 
+        com.pitchcoach.app.model.remote.BackendApiClient.getInstance()
+                .createPresentationOnBackend(created, durationMin, rawOutline,
+                        () -> db.markPresentationSynced(created.id));
+
         firebaseDataSource.savePresentationToFirestore(
                 created, durationMin, rawOutline,
                 () -> db.markPresentationSynced(created.id));
@@ -67,6 +84,8 @@ public class PresentationRepository {
         PitchCoachDbHelper db = PitchCoachDbHelper.getInstance(context);
         String deletedId = db.softDeletePresentationByTitle(title);
         if (deletedId != null) {
+            com.pitchcoach.app.model.remote.BackendApiClient.getInstance()
+                    .deletePresentationOnBackend(deletedId);
             firebaseDataSource.softDeletePresentationInFirestore(deletedId);
         }
         return db.getAllPresentations();

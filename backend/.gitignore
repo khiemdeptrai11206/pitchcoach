@@ -32,6 +32,15 @@ build/
 ### VS Code ###
 .vscode/
 
-# Firebase Admin SDK secret key
+# Firebase Admin SDK secret key & credentials
 firebase-service-account.json
 *firebase-adminsdk*.json
+**/firebase*.json
+
+# Local environment & secret properties (ignored from Git)
+*.env
+.env
+.env.*
+application-local.properties
+**/application-local.properties
+src/main/resources/application-*.properties

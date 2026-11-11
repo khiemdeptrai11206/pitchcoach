@@ -112,6 +112,8 @@ public class AuthController {
                                     String displayName, String avatarUrl) {
         PitchCoachDbHelper.getInstance(context).upsertUser(uid, email, displayName, avatarUrl);
         FirebaseDataSource.getInstance().syncUserToFirestore(uid, email, displayName, avatarUrl);
+        com.pitchcoach.app.model.remote.BackendApiClient.getInstance()
+                .syncUserWithBackend(uid, displayName, avatarUrl);
     }
 
     public void logout(AuthCallback callback) {
